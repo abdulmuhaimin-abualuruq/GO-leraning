@@ -11,5 +11,6 @@ func main() {
 		fmt.Println("Error reading inventory:", err)
 		return
 	}
-	fmt.Println(content)
+	fmt.Println("=== المخزون ===")
+	fmt.Print(content)
 }

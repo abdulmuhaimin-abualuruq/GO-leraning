@@ -1,7 +1,6 @@
 package inventory
 
 import (
-	"fmt"
 	"io"
 	"os"
 )
@@ -18,6 +17,5 @@ func ReadInventory(path string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	fmt.Println("=== المخزون ===")
 	return string(bytes), nil
 }

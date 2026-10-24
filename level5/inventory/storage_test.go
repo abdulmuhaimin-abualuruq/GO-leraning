@@ -9,8 +9,9 @@ func TestReadInventorySuccess(t *testing.T) {
 	if err != nil {
 		t.Fatalf("❌❌ Error reading inventory: %v", err)
 	}
-	if read == "" {
-		t.Fatal("❌❌ Expected content but got empty string")
+	expected := "KB-001 | لوحة مفاتيح | 12\nMS-002 | فأرة | 8\nMN-003 | شاشة | 4\n"
+	if read != expected {
+		t.Fatalf("❌❌ Expected content:\n%q\nGot:\n%q", expected, read)
 	}
 }
 
