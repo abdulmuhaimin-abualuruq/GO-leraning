@@ -1,0 +1,17 @@
+[
+  {
+    "code": "KB-001",
+    "name": "لوحة مفاتيح",
+    "quantity": 12
+  },
+  {
+    "code": "MS-002",
+    "name": "فأرة",
+    "quantity": 8
+  },
+  {
+    "code": "MN-003",
+    "name": "شاشة",
+    "quantity": 4
+  }
+]
