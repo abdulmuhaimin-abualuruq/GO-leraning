@@ -63,5 +63,30 @@ func ParseInventory(content string) ([]Product, error) {
 		products = append(products, p)
 	}
 
+	if err := ValidateInventory(products); err != nil {
+		return nil, err
+	}
+
 	return products, nil
+}
+
+func ValidateInventory(products []Product) error {
+	seen := map[string]bool{}
+
+	for i := 0; i < len(products); i++ {
+		p := products[i]
+
+		if err := ValidateProduct(p); err != nil {
+			return err
+		}
+		code := strings.TrimSpace(p.Code)
+
+		if seen[code] {
+			return fmt.Errorf("كود المنتج %s مكرر", code)
+		}
+
+		seen[code] = true
+	}
+
+	return nil
 }

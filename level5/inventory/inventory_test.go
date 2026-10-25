@@ -66,7 +66,10 @@ func TestJSONStorage(t *testing.T) {
 
 	// 2. Reject corrupt JSON file
 	corruptPath := filepath.Join(t.TempDir(), "corrupt.json")
-	_ = os.WriteFile(corruptPath, []byte(`{invalid`), 0644)
+	if err := os.WriteFile(corruptPath, []byte(`{invalid`), 0644); err != nil {
+		t.Fatalf("failed to prepare corrupt JSON: %v", err)
+	}
+
 	if _, err := LoadJSON(corruptPath); err == nil {
 		t.Errorf("expected error for corrupt JSON")
 	}
