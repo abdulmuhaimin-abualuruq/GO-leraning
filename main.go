@@ -91,6 +91,6 @@ func main() {
 		stock[0],
 		stock[1],
 	}
-	
+
 	fmt.Println(report.Sum(deposit))
 }
